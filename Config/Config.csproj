@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47B026A9-E88E-42A5-83FE-3802A157026A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Config</RootNamespace>
+    <AssemblyName>SRC.Config</AssemblyName>
+    <ReleaseVersion>1.0</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\build\bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\build\bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\ConfigManager.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\ConfigurationElementCollection.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\ConfigurationSection.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\StringItem.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\RegistryManager.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\Localization.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\NameValueItem.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Config\Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\Stefano%27s Reusable Code.csproj">
+      <Project>{E7D5CB70-05C9-4BA3-9175-776F56A09BD3}</Project>
+      <Name>Stefano's Reusable Code</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="..\..\Stefano%27s Reusable Code\Config\Properties\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\LayoutManagers\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\LayoutManagers\bin\Release\LayoutManagers.dll
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\LayoutManagers\bin\Release\LayoutManagers.pdb
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\LayoutManagers\obj\Release\LayoutManagers.dll
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\LayoutManagers\obj\Release\LayoutManagers.pdb

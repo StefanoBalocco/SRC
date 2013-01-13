@@ -1,0 +1,5 @@
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\Stefano's Reusable Code\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\Stefano's Reusable Code\bin\Release\SRC.dll
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\Stefano's Reusable Code\bin\Release\SRC.pdb
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\Stefano's Reusable Code\obj\Release\SRC.dll
+C:\Users\Stefano\Documents\Visual Studio 2008\Projects\Stefano's Reusable Code\Stefano's Reusable Code\obj\Release\SRC.pdb

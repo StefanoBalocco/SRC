@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stefano's Reusable Code", "Stefano's Reusable Code\Stefano's Reusable Code.csproj", "{E7D5CB70-05C9-4BA3-9175-776F56A09BD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayoutManagers", "LayoutManagers\LayoutManagers.csproj", "{4A75AA7E-2E0F-4A5C-9EB5-308988FF9A4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{47B026A9-E88E-42A5-83FE-3802A157026A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptography", "Cryptography\Cryptography.csproj", "{F7BEA351-A3CC-416E-B2C4-E086E4870D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Math", "Math\Math.csproj", "{560141A1-54F9-443F-BF14-8B4259FC068B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47B026A9-E88E-42A5-83FE-3802A157026A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B026A9-E88E-42A5-83FE-3802A157026A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47B026A9-E88E-42A5-83FE-3802A157026A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B026A9-E88E-42A5-83FE-3802A157026A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A75AA7E-2E0F-4A5C-9EB5-308988FF9A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A75AA7E-2E0F-4A5C-9EB5-308988FF9A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A75AA7E-2E0F-4A5C-9EB5-308988FF9A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A75AA7E-2E0F-4A5C-9EB5-308988FF9A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560141A1-54F9-443F-BF14-8B4259FC068B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560141A1-54F9-443F-BF14-8B4259FC068B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560141A1-54F9-443F-BF14-8B4259FC068B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560141A1-54F9-443F-BF14-8B4259FC068B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7D5CB70-05C9-4BA3-9175-776F56A09BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7D5CB70-05C9-4BA3-9175-776F56A09BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7D5CB70-05C9-4BA3-9175-776F56A09BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7D5CB70-05C9-4BA3-9175-776F56A09BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BEA351-A3CC-416E-B2C4-E086E4870D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BEA351-A3CC-416E-B2C4-E086E4870D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BEA351-A3CC-416E-B2C4-E086E4870D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BEA351-A3CC-416E-B2C4-E086E4870D91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Stefano's Reusable Code\Stefano's Reusable Code.csproj
+		Policies = $0
+		$0.StandardHeader = $1
+		$1.Text = @\n Author:\n   ${AuthorName} ${AuthorEmail}\n\n Copyright (c) ${Year}, ${CopyrightHolder}\n\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in\n      the documentation and/or other materials provided with the distribution.\n    * Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR\n CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,\n EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,\n PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR\n PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF\n LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING\n NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n
+		$1.IncludeInNewFiles = True
+		$0.VersionControlPolicy = $2
+		$2.inheritsSet = Mono
+		$0.ChangeLogPolicy = $3
+		$3.UpdateMode = None
+		$3.MessageStyle = $4
+		$4.LineAlign = 0
+		$3.inheritsSet = Mono
+		version = 1.0
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
