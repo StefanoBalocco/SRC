@@ -41,7 +41,7 @@ namespace SRC.Cryptography
 				if( null == prime )
 				{
 					// Source for the prime number: http://www.alpertron.com.ar/glpxm1.pl?digits=327
-					prime = new BigInteger( "512760658271029132363555082556345686327932155015477028179108119504766444454819802587788422315656334405023492181360800223899332195287570357322692871093750000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001", 10 );
+					prime = new BigInteger( "512760658271029132363555082556345686327932155015477028179108119504766444454819802587788422315656334405023492181360800223899332195287570357322692871093750000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001" );
 				}
 				return prime;
 			}
@@ -54,7 +54,7 @@ namespace SRC.Cryptography
 				if( null == generator )
 				{
 					// Generator calculated with Pari-gp
-					generator = new BigInteger( "7" );
+					generator = new BigInteger( "7", 10 );
 				}
 				return generator;
 			}
@@ -67,8 +67,10 @@ namespace SRC.Cryptography
 			{
 				if( null == privateKey )
 				{
-					privateKey = BigInteger.ProbablePrime( 512  );
-					System.Console.Out.WriteLine( privateKey.ToString() );
+					privateKey = BigInteger.ProbablePrime( 512 );
+#if DEBUG
+					Console.Error.WriteLine( "DHM private key: " + privateKey.ToString() );
+#endif
 				}
 				return privateKey;
 			}
@@ -112,23 +114,5 @@ namespace SRC.Cryptography
 			}
 		}
 	}
-	public class test
-	{
-		public static void Main()
-		{
-			DiffieHellmanMerkle a = new DiffieHellmanMerkle();
-			DiffieHellmanMerkle b = new DiffieHellmanMerkle();
-			System.Console.Out.WriteLine( DiffieHellmanMerkle.Prime.ToString() );
-			System.Console.Out.WriteLine( DiffieHellmanMerkle.Generator.ToString() );
-			System.Console.Out.WriteLine( a.GamodP.ToString() );
-			System.Console.Out.WriteLine( b.GamodP.ToString() );
-			a.GbmodP = b.GamodP;
-			b.GbmodP = a.GamodP;
-			System.Console.Out.WriteLine( a.Secret.Equals( b.Secret ) );
-			System.Console.Out.WriteLine( a.Secret.ToString() );
-			System.Console.Out.WriteLine( b.Secret.ToString() );
-		}
-	}
-
 }
 

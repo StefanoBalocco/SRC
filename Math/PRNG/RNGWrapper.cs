@@ -1,8 +1,8 @@
-﻿//
+//
 //  Author:
 //    Stefano Balocco Stefano.Balocco@gmail.com
 //
-//  Copyright (c) 2009-2013, Stefano Balocco
+//  Copyright (c) 2011-2013, Stefano Balocco
 //
 //  All rights reserved.
 //
@@ -26,37 +26,36 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-namespace SRC
+using SRC;
+
+namespace SRC.Math.PRNG
 {
-	public class Singleton<T> where T : new()
+	public sealed class RNGWrapper : SRC.Math.PRNG.Random
 	{
-		private static T _instance;
-		public static T Instance
+		private static Random _instance = null;
+		public static Random Instance
 		{
 			get
 			{
 				if( null == _instance )
 				{
-					_instance = new T(  );
+					_instance = new RNGWrapper( );
 				}
 				return _instance;
 			}
 		}
-	}
 
-	public class Singleton<X,Y> where X : Y, new()
-	{
-		private static Y _instance;
-		public static Y Instance
+		private System.Security.Cryptography.RandomNumberGenerator random;
+
+		public override void NextBytes( byte[] bytes )
 		{
-			get
-			{
-				if( null == _instance )
-				{
-					_instance = new X(  );
-				}
-				return _instance;
-			}
+			random.GetBytes( bytes );
+		}
+
+		public RNGWrapper( )
+		{
+			random = System.Security.Cryptography.RandomNumberGenerator.Create( );
 		}
 	}
 }
+

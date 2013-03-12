@@ -1,22 +1,50 @@
 ﻿<Properties GitUserInfo="UsingMD">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Math/BigInteger.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Tests/test.cs">
     <Files>
-      <File FileName="Math/BigInteger.cs" Line="44" Column="44" />
+      <File FileName="Tests/test.cs" Line="107" Column="1" />
+      <File FileName="Math/PRNG/Isaac.cs" Line="285" Column="28" />
+      <File FileName="Stefano's Reusable Code/ExtensionMethods.cs" Line="178" Column="24" />
+      <File FileName="Cryptography/ARC4.cs" Line="57" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
+          <Node name="Cryptography" expanded="True" />
           <Node name="Math" expanded="True">
-            <Node name="Properties" expanded="True" />
+            <Node name="PRNG" expanded="True" />
           </Node>
           <Node name="Stefano's Reusable Code" expanded="True" />
+          <Node name="Tests" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="test.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>pippo</Value>
+        </State>
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="Tests" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/stefano/Dropbox/Coding/C#/Stefano's Reusable Code/Cryptography/CryptoStream.cs" line="310" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Tests/test.cs" line="384" offsetX="462" offsetY="6069" expression="pippo" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

@@ -1,5 +1,5 @@
 //
-// SRC.Cryptography.KeyBuilder, ripped from:
+// Ripped from Mono v2.10.9
 //
 // Mono.Security.Cryptography.CryptoTools
 //	Shared class for common cryptographic functionalities
@@ -33,7 +33,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace eHTTPtunnel.Common.Cryptography
+namespace SRC.Cryptography
 {
 		public sealed class KeyBuilder
 		{

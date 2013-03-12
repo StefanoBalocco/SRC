@@ -2,7 +2,7 @@
 //  Author:
 //    Stefano Balocco Stefano.Balocco@gmail.com
 //
-//  Copyright (c) 2011-2013, Stefano Balocco
+//  Copyright (c) 2013, Stefano Balocco
 //
 //  All rights reserved.
 //
@@ -25,17 +25,15 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
-
 using System;
-using SRC;
 
-namespace SRC.Math
+namespace SRC.Math.PRNG
 {
-	public class RNGWrapper : Singleton<RNGWrapper>
+	public abstract class Random
 	{
-		private System.Security.Cryptography.RandomNumberGenerator random = System.Security.Cryptography.RandomNumberGenerator.Create(  );
+		public abstract void NextBytes( byte[] bytes );
 
-		public int Next()
+		public int Next( )
 		{
 			byte[] bytes = new byte[ 4 ];
 			NextBytes( bytes );
@@ -44,7 +42,7 @@ namespace SRC.Math
 
 		public int Next( int maximum )
 		{
-			return Next() % maximum;
+			return Next( ) % maximum;
 		}
 
 		public int Next( int minimum, int maximum )
@@ -52,38 +50,46 @@ namespace SRC.Math
 			return minimum + Next( maximum - minimum );
 		}
 
-		public void NextBytes( byte[] bytes )
-		{
-			random.GetBytes( bytes );
-		}
-
 		public byte NextByte( )
 		{
 			byte[] returnValue = new byte[ 1 ];
-			random.GetBytes( returnValue );
+			NextBytes( returnValue );
 			return returnValue[ 0 ];
 		}
 
 		public byte NextByte( byte maximum )
 		{
-			return (byte) ( NextByte() % maximum );
+			return ( byte ) ( NextByte( ) % maximum );
 		}
 
 		public byte NextByte( byte minimum, byte maximum )
 		{
-			return (byte) ( minimum + NextByte( (byte) ( maximum - minimum ) ) );
+			if( minimum > maximum )
+			{
+				throw new ArgumentOutOfRangeException( "Min value is greater than max value." );
+			}
+			return ( byte ) ( minimum + NextByte( ( byte ) ( maximum - minimum ) ) );
 		}
 
-		public double NextDouble()
+		public double NextDouble( )
 		{
 			byte[] bytes = new byte[ 8 ];
 			NextBytes( bytes );
 			return BitConverter.ToDouble( bytes, 0 );
 		}
 
+		public double NextDouble( double maximum )
+		{
+			return NextDouble( ) % maximum;
+		}
+
+		public double NextDouble( double minimum, double maximum )
+		{
+			return minimum + NextDouble( maximum - minimum );
+		}
+
 		public BigInteger GetBytes( int size )
 		{
-			
 			byte[] bytes = new byte[ size ];
 			NextBytes( bytes );
 			return new BigInteger( bytes );

@@ -1,8 +1,8 @@
-﻿//
+//
 //  Author:
 //    Stefano Balocco Stefano.Balocco@gmail.com
 //
-//  Copyright (c) 2009-2013, Stefano Balocco
+//  Copyright (c) 2013, Stefano Balocco
 //
 //  All rights reserved.
 //
@@ -25,38 +25,17 @@
 //  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
+using System;
+using System.Collections.Generic;
 
-namespace SRC
+namespace SRC.Math
 {
-	public class Singleton<T> where T : new()
+	public static class ExtensionMethods
 	{
-		private static T _instance;
-		public static T Instance
+		public static T GetRandomElement<T>( this IList<T> source, SRC.Math.PRNG.Random random )
 		{
-			get
-			{
-				if( null == _instance )
-				{
-					_instance = new T(  );
-				}
-				return _instance;
-			}
-		}
-	}
-
-	public class Singleton<X,Y> where X : Y, new()
-	{
-		private static Y _instance;
-		public static Y Instance
-		{
-			get
-			{
-				if( null == _instance )
-				{
-					_instance = new X(  );
-				}
-				return _instance;
-			}
+			return source[ random.Next( 0, source.Count ) ];
 		}
 	}
 }
+

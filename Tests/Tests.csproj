@@ -5,13 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{47B026A9-E88E-42A5-83FE-3802A157026A}</ProjectGuid>
+    <ProjectGuid>{7543F7C2-0A79-4D18-863B-AA6B1C2B69C0}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SRC.Config</RootNamespace>
-    <AssemblyName>SRC.Config</AssemblyName>
+    <RootNamespace>SRC.Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
     <ReleaseVersion>1.0</ReleaseVersion>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,29 +29,28 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\ConfigManager.cs" />
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\ConfigurationElementCollection.cs" />
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\ConfigurationSection.cs" />
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\StringItem.cs" />
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\RegistryManager.cs" />
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\Localization.cs" />
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\NameValueItem.cs" />
-    <Compile Include="..\..\Stefano%27s Reusable Code\Config\Properties\AssemblyInfo.cs" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\Stefano%27s Reusable Code\Cryptography\Cryptography.csproj">
+      <Project>{F7BEA351-A3CC-416E-B2C4-E086E4870D91}</Project>
+      <Name>Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Stefano%27s Reusable Code\Math\Math.csproj">
+      <Project>{560141A1-54F9-443F-BF14-8B4259FC068B}</Project>
+      <Name>Math</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\Stefano%27s Reusable Code.csproj">
       <Project>{E7D5CB70-05C9-4BA3-9175-776F56A09BD3}</Project>
       <Name>Stefano's Reusable Code</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="..\..\Stefano%27s Reusable Code\Config\Properties\" />
+    <Reference Include="nunit.framework, Version=2.6.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>nunit</Package>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Stefano%27s Reusable Code\Tests\test.cs" />
   </ItemGroup>
 </Project>

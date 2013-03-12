@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -7,10 +7,11 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{560141A1-54F9-443F-BF14-8B4259FC068B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Math</RootNamespace>
+    <RootNamespace>SRC.Math</RootNamespace>
     <AssemblyName>SRC.Math</AssemblyName>
     <ReleaseVersion>1.0</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,9 +35,13 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Stefano%27s Reusable Code\Math\RNGWrapper.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Math\Properties\AssemblyInfo.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Math\BigInteger.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Math\ExtensionMethods.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Math\PRNG\Isaac.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Math\PRNG\RNGWrapper.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Math\PRNG\Random.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Math\PRNG\ARC4.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -47,5 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="..\..\Stefano%27s Reusable Code\Math\Properties\" />
+    <Folder Include="..\..\Stefano%27s Reusable Code\Math\PRNG\" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -15,6 +15,7 @@
     </TargetFrameworkSubset>
     <ReleaseVersion>2.0</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,8 @@
     <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\Singleton.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\StateMachineManager\StateChangeEventArgs.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\StateMachineManager\StateManager.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\ExtensionMethods.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\Checksum.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
