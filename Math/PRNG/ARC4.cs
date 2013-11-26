@@ -29,8 +29,9 @@ using System;
 
 namespace SRC.Math.PRNG
 {
-	public class ARC4 : SRC.Math.PRNG.Random
+	public class ARC4 : System.Security.Cryptography.RandomNumberGenerator
 	{
+		private const short default_skip = 1024;
 		private short arc4_i = 0;
 		private short arc4_j = 0;
 
@@ -77,7 +78,7 @@ namespace SRC.Math.PRNG
 			S.Swap( arc4_i, arc4_j );
 		}
 
-		public ARC4( byte[] seed, int skip )
+		public void RngInitialize( byte[] seed, int skip )
 		{
 			if( null == seed )
 			{
@@ -102,11 +103,32 @@ namespace SRC.Math.PRNG
 			}
 		}
 
-		public ARC4( byte[] seed ) : this( seed, 0 )
+		public ARC4( )
+		{
+			System.Security.Cryptography.RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider( );
+			byte[ ] seed = new byte[ 256 ];
+			rng.GetBytes( seed );
+			RngInitialize( seed, default_skip );
+		}
+
+		public ARC4( byte[] seed, int skip )
+		{
+			RngInitialize( seed, skip );
+		}
+
+		public ARC4( byte[] seed ) : this( seed, default_skip )
 		{
 		}
 
-		public override void NextBytes( byte[] buffer )
+		public ARC4( string str, int skip ) : this( ( ( null != str ) ? System.Text.Encoding.UTF8.GetBytes( str ) : null ), skip )
+		{
+		}
+
+		public ARC4( string str ) : this( str, default_skip )
+		{
+		}
+
+		public override void GetBytes( byte[] buffer )
 		{
 			for( int i = 0; i < buffer.Length; i++ )
 			{
@@ -114,6 +136,20 @@ namespace SRC.Math.PRNG
 				buffer[ i ] = (byte) ( S[ ( ( S[ arc4_i ] + S[ arc4_j ] ) % 256 ) ] );
 			}
 		}
+
+		public override void GetNonZeroBytes( byte[] bytes )
+		{
+			for( int i = 0; i < bytes.Length; i++ )
+			{
+				byte[ ] tmpVariable = new byte[ 1 ] { 0 };
+				while( 0 == tmpVariable[ 0 ] )
+				{
+					GetBytes( tmpVariable );
+				}
+				bytes[ i ] = tmpVariable[ 0 ];
+			}
+		}
+
 	}
 }
 

@@ -30,7 +30,7 @@ using System.Collections.Generic;
 
 namespace SRC.Math.PRNG
 {
-	public class Isaac : SRC.Math.PRNG.Random
+	public class Isaac : System.Security.Cryptography.RandomNumberGenerator
 	{
 		private const int SIZEL = 8;				/* log of size of rsl[] and mem[] */
 		private const int SIZE = 1 << SIZEL;		/* size of rsl[] and mem[] */
@@ -43,96 +43,29 @@ namespace SRC.Math.PRNG
 		private int c;								/* counter, guarantees cycle is at least 2^^40 */
 		private IList<byte> buffer;					/* Buffer for the last result */
 
-		public Isaac( ) : this( null )
-		{
-		}
-
-		public Isaac( byte[] seed )
+		/* initialize, or reinitialize, this instance of rand */
+		public void RngInitialize( byte[] seed )
 		{
 			mem = new int[SIZE];
 			rsl = new int[SIZE];
+			bool seeded = false;
+			int i;
+			int a, b, c, d, e, f, g, h;
 			if( null != seed )
 			{
-				if( ( seed.Length > SIZE ) || ( 0 != ( 4 % seed.Length ) ) )
+				if( ( seed.Length > SIZE ) || ( 0 != ( seed.Length % 4 ) ) )
 				{
 					throw new ArgumentException( String.Format( "seed is too big ({0} bytes) or the byte number isn't a 4 multiple, it should be between 0 and {1} bytes long, with 4 byte increments.", seed.Length, SIZE * 4 ), "seed" );
 				}
 				else
 				{
-					for( int i = 0; ( i < ( seed.Length / 4 ) ) && ( i < SIZE ); ++i )
+					for( i = 0; ( i < ( seed.Length / 4 ) ) && ( i < SIZE ); ++i )
 					{
-						rsl[i] = seed.ToInt( i );
+						rsl[ i ] = seed.ToInt( i );
 					}
+					seeded = true;
 				}
 			}
-			Init( ( null != seed ) && ( 0 == ( 4 % seed.Length ) ) && ( ( seed.Length / 4 ) <= SIZE ) );
-		}
-
-		/* Generate 256 results.  This is a fast (not small) implementation. */
-		private void Generate( )
-		{
-			int i, j, x, y;
-
-			b += ++c;
-			for( i = 0, j = SIZE / 2; i < SIZE / 2; )
-			{
-				x = mem[ i ];
-				a ^= a << 13;
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-
-				x = mem[ i ];
-				a ^= ( int ) ( ( uint ) a >> 6 );
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-
-				x = mem[ i ];
-				a ^= a << 2;
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-
-				x = mem[ i ];
-				a ^= ( int ) ( ( uint ) a >> 16 );
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-			}
-			for( j = 0; j < SIZE / 2; )
-			{
-				x = mem[ i ];
-				a ^= a << 13;
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-
-				x = mem[ i ];
-				a ^= ( int ) ( ( uint ) a >> 6 );
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-
-				x = mem[ i ];
-				a ^= a << 2;
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-
-				x = mem[ i ];
-				a ^= ( int ) ( ( uint ) a >> 16 );
-				a += mem[ j++ ];
-				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
-				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
-			}
-		}
-
-		/* initialize, or reinitialize, this instance of rand */
-		private void Init( bool seeded )
-		{
-			int i;
-			int a, b, c, d, e, f, g, h;
 			/* the golden ratio */
 			a = b = c = d = e = f = g = h = unchecked( ( int ) 0x9e3779b9 );
 
@@ -263,7 +196,84 @@ namespace SRC.Math.PRNG
 			count = SIZE;
 		}
 
-		public override void NextBytes( byte[] bytes )
+		public Isaac( )
+		{
+			System.Security.Cryptography.RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider( );
+			byte[ ] seed = new byte[ SIZE ];
+			rng.GetBytes( seed );
+			RngInitialize( seed );
+		}
+
+		public Isaac( byte[ ] rgb )
+		{
+			RngInitialize( rgb );
+		}
+
+		public Isaac( string str ) : this( ( null != str ) ? System.Text.Encoding.UTF8.GetBytes( str ) : null )
+		{
+		}
+
+		/* Generate 256 results.  This is a fast (not small) implementation. */
+		private void Generate( )
+		{
+			int i, j, x, y;
+
+			b += ++c;
+			for( i = 0, j = SIZE / 2; i < SIZE / 2; )
+			{
+				x = mem[ i ];
+				a ^= a << 13;
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+
+				x = mem[ i ];
+				a ^= ( int ) ( ( uint ) a >> 6 );
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+
+				x = mem[ i ];
+				a ^= a << 2;
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+
+				x = mem[ i ];
+				a ^= ( int ) ( ( uint ) a >> 16 );
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+			}
+			for( j = 0; j < SIZE / 2; )
+			{
+				x = mem[ i ];
+				a ^= a << 13;
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+
+				x = mem[ i ];
+				a ^= ( int ) ( ( uint ) a >> 6 );
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+
+				x = mem[ i ];
+				a ^= a << 2;
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+
+				x = mem[ i ];
+				a ^= ( int ) ( ( uint ) a >> 16 );
+				a += mem[ j++ ];
+				mem[ i ] = y = mem[ ( x & MASK ) >> 2 ] + a + b;
+				rsl[ i++ ] = b = mem[ ( ( y >> SIZEL ) & MASK ) >> 2 ] + x;
+			}
+		}
+
+		public override void GetBytes( byte[] bytes )
 		{
 			if( null == buffer )
 			{
@@ -285,6 +295,19 @@ namespace SRC.Math.PRNG
 					bytes[ i ] = buffer[ 0 ];
 					buffer.RemoveAt( 0 );
 				}
+			}
+		}
+
+		public override void GetNonZeroBytes( byte[] bytes )
+		{
+			for( int i = 0; i < bytes.Length; i++ )
+			{
+				byte[ ] tmpVariable = new byte[ 1 ] { 0 };
+				while( 0 == tmpVariable[ 0 ] )
+				{
+					GetBytes( tmpVariable );
+				}
+				bytes[ i ] = tmpVariable[ 0 ];
 			}
 		}
 	}

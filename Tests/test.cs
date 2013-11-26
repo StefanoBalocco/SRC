@@ -41,16 +41,6 @@ namespace SRC.Tests
 	[TestFixture]
 	public class Tests
 	{
-		[Test]
-		public static void DHM()
-		{
-			DiffieHellmanMerkle a = new DiffieHellmanMerkle();
-			DiffieHellmanMerkle b = new DiffieHellmanMerkle();
-			a.GbmodP = b.GamodP;
-			b.GbmodP = a.GamodP;
-			Assert.AreEqual( a.Secret, b.Secret );
-		}
-
 		[TestCase( "00000000000000000000000000000000", "0000000000000000", Result="ab043705808c5d57" )]
 		[TestCase( "0102040810204080fffefcf8f0e0c080", "0000000000000000", Result="d1e78be2c746728a" )]
 		[TestCase( "9e3779b99b9773e9b979379e6b695156", "ffffffffffffffff", Result="67ed0ea8e8973fc5" )]
@@ -376,9 +366,21 @@ namespace SRC.Tests
 		}
 
 		[Test]
-		public void Isaac( )
+		public void PRNG_Isaac( )
 		{
-			SRC.Math.PRNG.Random random = new Isaac( );
+			Type type;
+			SRC.Utilities.TryFindType( "SRC.Math.PRNG.Isaac", out type );
+			SRC.Math.PRNG.RNGWrapper random = new RNGWrapper( type.AssemblyQualifiedName );
+			byte[] buffer = new byte[ 256 ];
+			random.NextBytes( buffer );
+		}
+
+		[Test]
+		public void PRNG_ARC4( )
+		{
+			Type type;
+			SRC.Utilities.TryFindType( "SRC.Math.PRNG.ARC4", out type );
+			SRC.Math.PRNG.RNGWrapper random = new RNGWrapper( type.AssemblyQualifiedName );
 			byte[] buffer = new byte[ 256 ];
 			random.NextBytes( buffer );
 		}

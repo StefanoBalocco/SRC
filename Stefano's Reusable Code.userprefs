@@ -2,14 +2,19 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Tests/test.cs">
     <Files>
-      <File FileName="Tests/test.cs" Line="107" Column="1" />
-      <File FileName="Math/PRNG/Isaac.cs" Line="285" Column="28" />
-      <File FileName="Stefano's Reusable Code/ExtensionMethods.cs" Line="178" Column="24" />
-      <File FileName="Cryptography/ARC4.cs" Line="57" Column="36" />
+      <File FileName="Tests/test.cs" Line="382" Column="50" />
+      <File FileName="Cryptography/KeyBuilder.cs" Line="52" Column="46" />
+      <File FileName="Math/PRNG/Isaac.cs" Line="1" Column="1" />
+      <File FileName="Math/PRNG/Random.cs" Line="32" Column="1" />
+      <File FileName="Math/BigInteger.cs" Line="546" Column="14" />
+      <File FileName="Math/PRNG/RNGWrapper.cs" Line="57" Column="71" />
+      <File FileName="Math/PRNG/ARC4.cs" Line="109" Column="11" />
+      <File FileName="Stefano's Reusable Code/Utilities.cs" Line="51" Column="7" />
+      <File FileName="Stefano's Reusable Code/ToList.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
+        <State expanded="True" selected="True">
           <Node name="Cryptography" expanded="True" />
           <Node name="Math" expanded="True">
             <Node name="PRNG" expanded="True" />
@@ -17,7 +22,6 @@
           <Node name="Stefano's Reusable Code" expanded="True" />
           <Node name="Tests" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="test.cs" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -26,22 +30,26 @@
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>pippo</Value>
+          <Value>type.AssemblyQualifiedName</Value>
+          <Value>rngName</Value>
+          <Value>System.Security.Cryptography.RandomNumberGenerator.Create(  )</Value>
+          <Value>random</Value>
+          <Value>seed</Value>
+          <Value>SIZE</Value>
+          <Value>( seed.Length &gt; SIZE )</Value>
+          <Value>256 % 4</Value>
         </State>
-      </Pad>
-      <Pad Id="ConnectionManagerPad">
-        <State selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="Tests" selected="True" />
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/home/stefano/Dropbox/Coding/C#/Stefano's Reusable Code/Cryptography/CryptoStream.cs" line="310" />
+      <Breakpoint file="/home/stefano/Dropbox/Coding/C#/Stefano's Reusable Code/Stefano's Reusable Code/Utilities.cs" line="36" />
+      <Breakpoint file="/home/stefano/Dropbox/Coding/C#/Stefano's Reusable Code/Math/PRNG/Isaac.cs" line="196" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

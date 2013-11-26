@@ -46,6 +46,7 @@
     <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\StateMachineManager\StateManager.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\ExtensionMethods.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\Checksum.cs" />
+    <Compile Include="..\..\Stefano%27s Reusable Code\Stefano%27s Reusable Code\Utilities.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

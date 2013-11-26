@@ -35,7 +35,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Stefano%27s Reusable Code\Cryptography\DiffieHellmanMerkle.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Cryptography\KeyBuilder.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Cryptography\XXTEA.cs" />
     <Compile Include="..\..\Stefano%27s Reusable Code\Cryptography\Properties\AssemblyInfo.cs" />

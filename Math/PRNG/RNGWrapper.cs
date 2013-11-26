@@ -47,15 +47,19 @@ namespace SRC.Math.PRNG
 
 		private System.Security.Cryptography.RandomNumberGenerator random;
 
-		public override void NextBytes( byte[] bytes )
-		{
-			random.GetBytes( bytes );
-		}
-
 		public RNGWrapper( )
 		{
 			random = System.Security.Cryptography.RandomNumberGenerator.Create( );
 		}
+
+		public RNGWrapper( string rngName )
+		{
+			random = System.Security.Cryptography.RandomNumberGenerator.Create( rngName );
+		}
+
+		public override void NextBytes( byte[] bytes )
+		{
+			random.GetBytes( bytes );
+		}
 	}
 }
-
